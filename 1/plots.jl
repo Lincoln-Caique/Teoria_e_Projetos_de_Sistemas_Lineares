@@ -1,0 +1,15 @@
+include("linearization.jl")
+include("non_linear_system.jl")
+using Plots
+
+plot(t, x[1,:], label="x1_l", linewidth=2, dpi=300)
+plot!(t, x[2,:], label="x2_l", linewidth=2)
+plot!(t, x[3,:], label="x3_l", linewidth=2)
+plot!(sol.t, sol[1,:], linestyle = :dash, label="x1_nl", linewidth=2)
+plot!(sol.t, sol[2,:], linestyle = :dash, label="x2_nl", linewidth=2)
+plot!(sol.t, sol[3,:], linestyle = :dash, label="x3_nl", linewidth=2)
+xlabel!("t(s)")
+ylabel!("estados")
+xlims!(0,0.1)
+ylims!(0,20)
+savefig("fora_operacao")
